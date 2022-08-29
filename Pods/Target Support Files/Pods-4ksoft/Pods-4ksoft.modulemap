@@ -1,0 +1,6 @@
+framework module Pods_4ksoft {
+  umbrella header "Pods-4ksoft-umbrella.h"
+
+  export *
+  module * { export * }
+}
