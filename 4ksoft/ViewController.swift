@@ -10,8 +10,6 @@ import SnapKit
 
 class ViewController: UIViewController {
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSubviews()
@@ -60,6 +58,13 @@ class ViewController: UIViewController {
         image3.contentMode = .bottom
         return image3
     }()
+    
+    private lazy var view1: UIView = {
+        let view1 = UIView()
+        view1.backgroundColor = .blue
+        view1.contentMode = .scaleAspectFit
+        return view1
+    }()
 
     private func setConstraints() {
         image1.snp.makeConstraints { make in
@@ -92,6 +97,13 @@ class ViewController: UIViewController {
             make.right.equalToSuperview().inset(265)
         }
         
+        view1.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(445)
+            make.left.equalToSuperview().inset(16)
+            make.right.equalToSuperview().inset(16)
+            make.width.equalTo(344)
+            make.height.equalTo(117)
+        }
     }
     
     private func setupSubviews() {
@@ -100,6 +112,7 @@ class ViewController: UIViewController {
         view.addSubview(welcomeLabel)
         view.addSubview(image2)
         view.addSubview(myDoors)
+        view.addSubview(view1)
     }
     
 }
