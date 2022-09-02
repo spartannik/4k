@@ -61,10 +61,50 @@ class ViewController: UIViewController {
     
     private lazy var view1: UIView = {
         let view1 = UIView()
-        view1.backgroundColor = .blue
+        view1.layer.cornerRadius = 20
+        view1.backgroundColor = .clear
         view1.contentMode = .scaleAspectFit
         return view1
     }()
+    
+    private lazy var image4: UIImageView = {
+        let image4 = UIImageView()
+        image4.image = UIImage(named: "Locked")
+        image4.contentMode = .scaleAspectFill
+        return image4
+    }()
+    
+    private lazy var button1: UIButton = {
+        let button1 = UIButton()
+        button1.layer.cornerRadius = 12
+        button1.backgroundColor = .clear
+        button1.contentMode = .scaleAspectFill
+        button1.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        return button1
+        }()
+    
+    @objc func buttonTapped(sender: UIButton) {
+        if sender.currentImage == UIImage(named: "Locked") {
+            sender.setImage(UIImage(named:"Unlocking"), for: .normal)
+            }
+            else {
+                sender.setImage( UIImage(named:"Unlocking"), for: .normal)
+            }
+        activityIndicator.startAnimating()
+    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { // Change `2.0` to the desired number of seconds.
+       // Code you want to be delayed
+        self.activityIndicator.stopAnimating()
+    }
+}
+    
+    // activity indicator
+    
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+            let activityIndicator = UIActivityIndicatorView()
+            activityIndicator.color = .black
+            return activityIndicator
+        }()
+    
 
     private func setConstraints() {
         image1.snp.makeConstraints { make in
@@ -104,6 +144,31 @@ class ViewController: UIViewController {
             make.width.equalTo(344)
             make.height.equalTo(117)
         }
+        
+        button1.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(442.5)
+            make.left.equalToSuperview().inset(16)
+            make.right.equalToSuperview().inset(16)
+            make.width.equalTo(344)
+            make.height.equalTo(120)
+        }
+        
+        image4.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(478)
+            make.left.equalToSuperview().inset(16)
+            make.right.equalToSuperview().inset(16)
+            make.width.equalTo(50)
+            make.height.equalTo(50)
+        }
+        
+        activityIndicator.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(476)
+            make.left.equalToSuperview().inset(16)
+            make.right.equalToSuperview().inset(16)
+            make.width.equalTo(50)
+            make.height.equalTo(50)
+        }
+        
     }
     
     private func setupSubviews() {
@@ -113,6 +178,9 @@ class ViewController: UIViewController {
         view.addSubview(image2)
         view.addSubview(myDoors)
         view.addSubview(view1)
+        view.addSubview(image4)
+        view.addSubview(button1)
+        view.addSubview(activityIndicator)
     }
     
 }
