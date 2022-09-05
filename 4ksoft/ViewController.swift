@@ -74,22 +74,30 @@ class ViewController: UIViewController {
         return image4
     }()
     
+    private lazy var image5: UIImageView = {
+        let image5 = UIImageView()
+        image5.image = UIImage(named: "Unlocked")
+        image5.contentMode = .scaleAspectFill
+        return image5
+    }()
+    
     private lazy var button1: UIButton = {
         let button1 = UIButton()
-        button1.layer.cornerRadius = 12
+ //       button1.setImage(UIImage(named: "Locked"), for: UIControl.State.highlighted)
         button1.backgroundColor = .clear
+        button1.layer.cornerRadius = 12
         button1.contentMode = .scaleAspectFill
         button1.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         return button1
         }()
     
+    
     @objc func buttonTapped(sender: UIButton) {
         if sender.currentImage == UIImage(named: "Locked") {
-            sender.setImage(UIImage(named:"Unlocking"), for: .normal)
-            }
-            else {
-                sender.setImage( UIImage(named:"Unlocking"), for: .normal)
-            }
+            sender.setImage(UIImage(named: "Unlocked"), for: .normal)
+        }  else {
+            sender.setImage( UIImage(named:"Locked"), for: .normal)
+        }
         activityIndicator.startAnimating()
     DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { // Change `2.0` to the desired number of seconds.
        // Code you want to be delayed
@@ -137,13 +145,13 @@ class ViewController: UIViewController {
             make.right.equalToSuperview().inset(265)
         }
         
-        view1.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(445)
-            make.left.equalToSuperview().inset(16)
-            make.right.equalToSuperview().inset(16)
-            make.width.equalTo(344)
-            make.height.equalTo(117)
-        }
+ //       view1.snp.makeConstraints { make in
+//            make.top.equalToSuperview().inset(445)
+ //           make.left.equalToSuperview().inset(16)
+ //           make.right.equalToSuperview().inset(16)
+ //           make.width.equalTo(344)
+ //           make.height.equalTo(117)
+//        }
         
         button1.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(442.5)
@@ -159,6 +167,13 @@ class ViewController: UIViewController {
             make.right.equalToSuperview().inset(16)
             make.width.equalTo(50)
             make.height.equalTo(50)
+        }
+        
+        image5.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(478)
+            make.left.equalToSuperview().inset(16)
+            make.right.equalToSuperview().inset(16)
+            make.width.height.equalTo(image4)
         }
         
         activityIndicator.snp.makeConstraints { make in
@@ -177,8 +192,9 @@ class ViewController: UIViewController {
         view.addSubview(welcomeLabel)
         view.addSubview(image2)
         view.addSubview(myDoors)
-        view.addSubview(view1)
+    //    view.addSubview(view1)
         view.addSubview(image4)
+        view.addSubview(image5)
         view.addSubview(button1)
         view.addSubview(activityIndicator)
     }
