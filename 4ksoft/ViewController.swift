@@ -10,12 +10,13 @@ import SnapKit
 
 class ViewController: UIViewController {
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSubviews()
         setConstraints()
         }
-
+    
     //  Labels
     
     private lazy var welcomeLabel: UILabel = {
@@ -83,7 +84,6 @@ class ViewController: UIViewController {
     
     private lazy var button1: UIButton = {
         let button1 = UIButton()
- //       button1.setImage(UIImage(named: "Locked"), for: UIControl.State.highlighted)
         button1.backgroundColor = .clear
         button1.layer.cornerRadius = 12
         button1.contentMode = .scaleAspectFill
@@ -106,6 +106,7 @@ class ViewController: UIViewController {
 }
     
     // activity indicator
+    
     
     private lazy var activityIndicator: UIActivityIndicatorView = {
             let activityIndicator = UIActivityIndicatorView()
@@ -145,14 +146,6 @@ class ViewController: UIViewController {
             make.right.equalToSuperview().inset(265)
         }
         
- //       view1.snp.makeConstraints { make in
-//            make.top.equalToSuperview().inset(445)
- //           make.left.equalToSuperview().inset(16)
- //           make.right.equalToSuperview().inset(16)
- //           make.width.equalTo(344)
- //           make.height.equalTo(117)
-//        }
-        
         button1.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(442.5)
             make.left.equalToSuperview().inset(16)
@@ -183,7 +176,6 @@ class ViewController: UIViewController {
             make.width.equalTo(50)
             make.height.equalTo(50)
         }
-        
     }
     
     private func setupSubviews() {
@@ -192,7 +184,6 @@ class ViewController: UIViewController {
         view.addSubview(welcomeLabel)
         view.addSubview(image2)
         view.addSubview(myDoors)
-    //    view.addSubview(view1)
         view.addSubview(image4)
         view.addSubview(image5)
         view.addSubview(button1)
