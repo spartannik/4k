@@ -14,7 +14,7 @@
 		C674C88C28BD1CCE002B829F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C674C88A28BD1CCE002B829F /* Main.storyboard */; };
 		C674C88E28BD1CD0002B829F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C674C88D28BD1CD0002B829F /* Assets.xcassets */; };
 		C674C89128BD1CD0002B829F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C674C88F28BD1CD0002B829F /* LaunchScreen.storyboard */; };
-		C68D954728C0D28300A646DD /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68D954628C0D28300A646DD /* Extension.swift */; };
+		C6A94B6F28CDE5A600B38F37 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A94B6E28CDE5A500B38F37 /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +28,7 @@
 		C674C88D28BD1CD0002B829F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C674C89028BD1CD0002B829F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C674C89228BD1CD0002B829F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C68D954628C0D28300A646DD /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		C6A94B6E28CDE5A500B38F37 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		D54D5EEBA52756A43BF4D486 /* Pods-4ksoft.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-4ksoft.release.xcconfig"; path = "Target Support Files/Pods-4ksoft/Pods-4ksoft.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,11 +85,11 @@
 				C674C88428BD1CCE002B829F /* AppDelegate.swift */,
 				C674C88628BD1CCE002B829F /* SceneDelegate.swift */,
 				C674C88828BD1CCE002B829F /* ViewController.swift */,
-				C68D954628C0D28300A646DD /* Extension.swift */,
 				C674C88A28BD1CCE002B829F /* Main.storyboard */,
 				C674C88D28BD1CD0002B829F /* Assets.xcassets */,
 				C674C88F28BD1CD0002B829F /* LaunchScreen.storyboard */,
 				C674C89228BD1CD0002B829F /* Info.plist */,
+				C6A94B6E28CDE5A500B38F37 /* CustomTableViewCell.swift */,
 			);
 			path = 4ksoft;
 			sourceTree = "<group>";
@@ -210,9 +210,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C674C88928BD1CCE002B829F /* ViewController.swift in Sources */,
+				C6A94B6F28CDE5A600B38F37 /* CustomTableViewCell.swift in Sources */,
 				C674C88528BD1CCE002B829F /* AppDelegate.swift in Sources */,
 				C674C88728BD1CCE002B829F /* SceneDelegate.swift in Sources */,
-				C68D954728C0D28300A646DD /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
