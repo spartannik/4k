@@ -21,12 +21,12 @@ class CustomTableViewCell: UITableViewCell {
     
     
     
-    private let myLabel: UILabel = {
+    public let myLabel: UILabel = {
         let label = UILabel()
-        label.text = """
-Front door
-Home
-"""
+//        label.text = """
+//     Front door
+//
+//       """
         label.textColor = .black
         label.font = .systemFont(ofSize: 20)
         return label
@@ -34,15 +34,15 @@ Home
     
     private let home: UILabel = {
         let label = UILabel()
-        label.text = "Home"
+//        label.text = "Home"
         label.textColor = .black
         label.font = .systemFont(ofSize: 14)
         return label
     }()
     
-    private let statusImage: UIImageView = {
+    public let statusImage: UIImageView = {
         let statusImage = UIImageView()
-        statusImage.image = UIImage(named: "statusDoor")
+ //       statusImage.image = UIImage(named: "statusDoor")
         statusImage.contentMode = .scaleAspectFit
         statusImage.clipsToBounds = true
         return statusImage
@@ -50,7 +50,7 @@ Home
     
     private let lockedDoor: UIImageView = {
         let statusImage = UIImageView()
-        statusImage.image = UIImage(named: "lockedDoor")
+ //       statusImage.image = UIImage(named: "lockedDoor")
         statusImage.contentMode = .scaleAspectFit
         statusImage.clipsToBounds = true
         return statusImage
@@ -80,6 +80,21 @@ Home
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func configure(text: String, imageName: String) {
+        myLabel.text = text
+        home.text = text
+        statusImage.image = UIImage(named: imageName)
+        lockedDoor.image = UIImage(named: imageName)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        myLabel.text = nil
+        home.text = nil
+        statusImage.image = nil
+        lockedDoor.image = nil
     }
     
     override func layoutSubviews() {

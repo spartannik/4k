@@ -10,8 +10,15 @@ import SnapKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    var Doors = ["Home", "Office",]
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.identifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! CustomTableViewCell
+        let door = Doors[indexPath.row]
+        
+        cell.myLabel.text = "Front Door"
+        cell.statusImage.image = UIImage(named: "statusDoor")
+        
         return cell
     }
     
@@ -20,7 +27,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 2
     }
     
 
