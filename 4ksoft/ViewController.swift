@@ -8,28 +8,9 @@
 import UIKit
 import SnapKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController {
     
-    var Doors = ["Home", "Office",]
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! CustomTableViewCell
-        let door = Doors[indexPath.row]
-        
-        cell.myLabel.text = "Front Door"
-        cell.statusImage.image = UIImage(named: "statusDoor")
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
-    }
-    
+    var doors = ["Home", "Office","Otel", "Room","Room2", "Room3"]
 
     //  Labels
 
@@ -143,20 +124,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
 
         welcomeLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(157)
+            make.top.equalTo(inerQRimage).inset(80)
             make.left.equalToSuperview().inset(24)
         }
 
         home.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(108)
-            make.left.equalToSuperview().inset(190)
+            make.top.equalTo(shester).inset(40)
+            make.left.equalTo(welcomeLabel).inset(180)
             make.right.equalToSuperview().inset(4)
         }
 
         myDoors.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(307)
+            make.top.equalTo(welcomeLabel).inset(150)
             make.left.equalToSuperview().inset(25)
-            make.right.equalToSuperview().inset(265)
         }
 
 //        image4.snp.makeConstraints { make in
@@ -183,11 +163,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //        }
         
         tableView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(360)
+            make.top.equalTo(myDoors).inset(30)
             make.left.equalToSuperview().inset(16)
             make.right.equalToSuperview().inset(16)
-            make.width.equalTo(300)
-            make.height.equalTo(400)
+            make.bottom.equalToSuperview()
         }
         
     }
@@ -204,6 +183,36 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //        view.addSubview(activityIndicator)
         view.addSubview(tableView)
     }
+
+}
+
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return doors.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.identifier) as! CustomTableViewCell
+        let door = doors[indexPath.row]
+
+        cell.myLabel.text = door
+        cell.statusImage.image = UIImage(named: "statusDoor")
+
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? CustomTableViewCell {
+            cell.didTap()
+        }
+    }
+
+
 
 }
 
