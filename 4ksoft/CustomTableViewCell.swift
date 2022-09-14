@@ -177,13 +177,13 @@ class CustomTableViewCell: UITableViewCell {
 
         firstStateLockedDoor()
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             self.thirdStateUnlockedDoor()
         }
 
         secodStateUnlockingProcessDoor()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) {
             self.firstStateLockedDoor()
         }
     }
@@ -206,29 +206,6 @@ class CustomTableViewCell: UITableViewCell {
         statusImage.image = UIImage(named: "Unlocked")
         locked.text = "Unlocked"
     }
-
-
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//
-//        let imageSize = contentView.frame.size.height-55
-//
-//        myLabel.frame = CGRect(x: 75,
-//                               y: 5,
-//                               width: contentView.frame.size.width/2 ,
-//                               height: contentView.frame.size.height/2)
-//
-//        statusImage.frame = CGRect(x: contentView.frame.size.width-imageSize, y: 20, width: imageSize, height: imageSize)
-//
-//        lockedDoor.frame = CGRect(x: 25, y: 20, width: 35, height: 35)
-//
-//        home.frame = CGRect(x: 75,
-//                            y: 25,
-//                            width: contentView.frame.size.width/2 ,
-//                            height: contentView.frame.size.height/2)
-//
-//    }
-    
 }
 
 

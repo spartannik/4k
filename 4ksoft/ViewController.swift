@@ -82,25 +82,6 @@ class ViewController: UIViewController {
                            forCellReuseIdentifier: CustomTableViewCell.identifier)
         return tableView
     }()
-    
-    
-
-//    func delayfunc() {
-//        activityIndicator.startAnimating()
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { // Change `2.0` to the desired number of seconds.
-            // Code you want to be delayed
-//            self.activityIndicator.stopAnimating()
-//        }
-//    }
-
-    // activity indicator
-
-
-//    private lazy var activityIndicator: UIActivityIndicatorView = {
-//        let activityIndicator = UIActivityIndicatorView()
-//        activityIndicator.color = .black
-//        return activityIndicator
-//    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -138,29 +119,6 @@ class ViewController: UIViewController {
             make.top.equalTo(welcomeLabel).inset(150)
             make.left.equalToSuperview().inset(25)
         }
-
-//        image4.snp.makeConstraints { make in
-//            make.top.equalToSuperview().inset(478)
-//            make.left.equalToSuperview().inset(16)
-//            make.right.equalToSuperview().inset(16)
-//            make.width.equalTo(50)
-//            make.height.equalTo(50)
-//        }
-
-//        image5.snp.makeConstraints { make in
-//            make.top.equalToSuperview().inset(478)
-//            make.left.equalToSuperview().inset(16)
-//            make.right.equalToSuperview().inset(16)
-//            make.width.height.equalTo(image4)
-//       }
-
-//        activityIndicator.snp.makeConstraints { make in
-//            make.top.equalToSuperview().inset(476)
-//            make.left.equalToSuperview().inset(16)
-//            make.right.equalToSuperview().inset(16)
-//            make.width.equalTo(50)
-//            make.height.equalTo(50)
-//        }
         
         tableView.snp.makeConstraints { make in
             make.top.equalTo(myDoors).inset(30)
@@ -177,10 +135,6 @@ class ViewController: UIViewController {
         view.addSubview(welcomeLabel)
         view.addSubview(home)
         view.addSubview(myDoors)
-//        view.addSubview(image4)
-//        view.addSubview(image5)
-//        view.addSubview(button1)
-//        view.addSubview(activityIndicator)
         view.addSubview(tableView)
     }
 
