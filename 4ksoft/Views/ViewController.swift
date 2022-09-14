@@ -54,14 +54,6 @@ class ViewController: UIViewController {
         return image3
     }()
 
-    private lazy var view1: UIView = {
-        let view1 = UIView()
-        view1.layer.cornerRadius = 20
-        view1.backgroundColor = .clear
-        view1.contentMode = .scaleAspectFit
-        return view1
-    }()
-
     private lazy var image4: UIImageView = {
         let image4 = UIImageView()
         image4.image = UIImage(named: "Locked")
