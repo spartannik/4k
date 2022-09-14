@@ -10,7 +10,7 @@ import SnapKit
 
 class ViewController: UIViewController {
     
-    var doors = ["Home", "Office","Otel", "Room","Room2", "Room3"]
+    var doors = ["Front door", "Office","Otel", "Room","Room2", "Room3"]
 
     //  Labels
 

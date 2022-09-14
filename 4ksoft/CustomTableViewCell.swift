@@ -14,7 +14,7 @@ class CustomTableViewCell: UITableViewCell {
     private lazy var button1: UIButton = {
         let button1 = UIButton()
         button1.backgroundColor = .clear
-        button1.layer.cornerRadius = 12
+        button1.layer.cornerRadius = 1
         button1.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         return button1
     }()
@@ -89,14 +89,18 @@ class CustomTableViewCell: UITableViewCell {
     
     @objc func buttonTapped(sender: UIButton) {
 
-        sender.isSelected = !sender.isSelected
+        firstStateLockedDoor()
 
-        if sender.isSelected {
-            sender.setImage(UIImage(named:"Locked"), for: .normal)
-        } else {
-            sender.setImage(UIImage(named: "Unlocked"), for: .normal)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            self.thirdStateUnlockedDoor()
         }
 
+        secodStateUnlockingProcessDoor()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) {
+            self.firstStateLockedDoor()
+        }
+        
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -141,6 +145,11 @@ class CustomTableViewCell: UITableViewCell {
         
         locked.snp.makeConstraints { make in
             make.left.equalTo(lockedDoor).inset(128)
+            make.bottom.equalTo(myLabel).inset(-40)
+        }
+        
+        button1.snp.makeConstraints { make in
+            make.left.equalTo(lockedDoor).inset(135)
             make.bottom.equalTo(myLabel).inset(-40)
         }
 
