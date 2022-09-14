@@ -13,18 +13,15 @@ class CustomTableViewCell: UITableViewCell {
     
     private lazy var button1: UIButton = {
         let button1 = UIButton()
-        button1.backgroundColor = .clear
         button1.layer.cornerRadius = 1
+        button1.setTitleColor(UIColor.black, for: .normal)
+        button1.setTitle("Locked", for: .normal)
         button1.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         return button1
     }()
 
     public let myLabel: UILabel = {
         let label = UILabel()
-//        label.text = """
-//     Front door
-//
-//       """
         label.textColor = .black
         label.font = .systemFont(ofSize: 20)
         return label
@@ -36,14 +33,6 @@ class CustomTableViewCell: UITableViewCell {
         label.textColor = .black
         label.font = .systemFont(ofSize: 14)
         return label
-    }()
-    
-    private let locked: UILabel = {
-        let locked = UILabel()
-        locked.text = "Locked"
-        locked.textColor = .blue
-        locked.font = .boldSystemFont(ofSize: 14)
-        return locked
     }()
     
     private let unlockedL: UILabel = {
@@ -88,31 +77,23 @@ class CustomTableViewCell: UITableViewCell {
     
     
     @objc func buttonTapped(sender: UIButton) {
-
-        firstStateLockedDoor()
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-            self.thirdStateUnlockedDoor()
-        }
-
-        secodStateUnlockingProcessDoor()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) {
-            self.firstStateLockedDoor()
-        }
-        
+        processDoor()
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
+        selectionStyle = .none
         contentView.backgroundColor = .clear
         contentView.addSubview(button1)
         contentView.addSubview(myLabel)
         contentView.addSubview(statusImage)
         contentView.addSubview(home)
         contentView.addSubview(lockedDoor)
-        contentView.addSubview(locked)
+
+        contentView.layer.cornerRadius = 15
+        contentView.layer.borderWidth = 0.5
+        contentView.layer.borderColor = UIColor.gray.cgColor
 
         setConstraints()
     }
@@ -143,43 +124,15 @@ class CustomTableViewCell: UITableViewCell {
             make.right.equalToSuperview().inset(30)
         }
         
-        locked.snp.makeConstraints { make in
-            make.left.equalTo(lockedDoor).inset(128)
-            make.bottom.equalTo(myLabel).inset(-40)
-        }
-        
         button1.snp.makeConstraints { make in
-            make.left.equalTo(lockedDoor).inset(135)
+            make.left.equalTo(lockedDoor).inset(128)
             make.bottom.equalTo(myLabel).inset(-40)
         }
 
     }
 
     func didTap() {
-        // didSelectRowAt
-
-        // make logic unloc lock unlocking...
-
-//        isSelected = !isSelected
-
-        // lockedDoor
-        // 1st UIImage(named: "lockedDoor")
-        // 2st UIImage(named: "unlock")
-        // 3st UIImage(named: "unlocking")
-
-        // Door image right
-        // 1st UIImage(named: "rightDoor")
-        // 2st UIImage(named: "unlock")
-        // 3st UIImage(named: "unlocking")
-
-        // UNlocking label
-        // 1st Locked
-        // 2st unlock
-        // 3st unlocking...
-
         processDoor()
-
-
     }
 
     func processDoor() {
@@ -201,19 +154,19 @@ class CustomTableViewCell: UITableViewCell {
     func firstStateLockedDoor() {
         lockedDoor.image = UIImage(named: "lockedDoor")
         statusImage.image = UIImage(named: "statusDoor")
-        locked.text = "Locked"
+        button1.setTitle("Locked", for: .normal)
     }
 
     func secodStateUnlockingProcessDoor() {
         lockedDoor.image = UIImage(named: "Unlocking")
         statusImage.image = UIImage(named: "Spinner")
-        locked.text = "Unlocking"
+        button1.setTitle("Unlocking", for: .normal)
     }
 
     func thirdStateUnlockedDoor() {
         lockedDoor.image = UIImage(named: "shieldUnlocked")
         statusImage.image = UIImage(named: "Unlocked")
-        locked.text = "Unlocked"
+        button1.setTitle("Unlocked", for: .normal)
     }
 }
 
