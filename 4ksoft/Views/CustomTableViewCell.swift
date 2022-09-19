@@ -8,88 +8,64 @@
 import UIKit
 
 class CustomTableViewCell: UITableViewCell {
-    
+
     static let identifier = "CustomTableViewCell"
-    
-    private lazy var button1: UIButton = {
-        let button1 = UIButton()
-        button1.layer.cornerRadius = 1
-        button1.setTitleColor(UIColor.black, for: .normal)
-        button1.setTitle("Locked", for: .normal)
-        button1.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        return button1
+
+    let doorNameLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .black
+        label.text = "Locked"
+        label.font = .boldSystemFont(ofSize: 15)
+        return label
     }()
 
-    public let myLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        label.font = .systemFont(ofSize: 20)
-        return label
-    }()
-    
-    private let home: UILabel = {
+    let doorPlaceLabel: UILabel = {
         let label = UILabel()
         label.text = "Home"
-        label.textColor = .black
+        label.textColor = UIColor(rgb: 0xB9B9B9)
         label.font = .systemFont(ofSize: 14)
         return label
     }()
-    
-    private let unlockedL: UILabel = {
-        let label = UILabel()
-        label.text = "Unlocked"
-        label.textColor = .blue
-        label.font = .systemFont(ofSize: 14)
-        return label
+
+    private lazy var doorStatusButton: UIButton = {
+        let button = UIButton()
+        let color = UIColor(rgb: 0x00448)
+        button.setTitleColor(color, for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 15)
+        button.setTitle("Locked", for: .normal)
+        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        return button
     }()
-    
-    public let unlocked: UIImageView = {
-        let unlocked = UIImageView()
-        unlocked.image = UIImage(named: "Unlocked")
-        unlocked.contentMode = .scaleAspectFit
-        unlocked.clipsToBounds = true
-        return unlocked
+
+    private let lockedShieldDoor: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "lockedDoor")
+        image.contentMode = .scaleAspectFit
+        image.clipsToBounds = true
+        return image
     }()
-    
-    public let unlocking: UIImageView = {
-        let unlocking = UIImageView()
-        unlocking.image = UIImage(named: "Unlocking")
-        unlocking.contentMode = .scaleAspectFit
-        unlocking.clipsToBounds = true
-        return unlocking
+
+    private let statusImage: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(named: "statusDoor")
+        image.contentMode = .scaleAspectFit
+        return image
     }()
-    
-    public let statusImage: UIImageView = {
-        let statusImage = UIImageView()
-        statusImage.image = UIImage(named: "statusDoor")
-        statusImage.contentMode = .scaleAspectFit
-        statusImage.clipsToBounds = true
-        return statusImage
-    }()
-    
-    private let lockedDoor: UIImageView = {
-        let lockedDoor = UIImageView()
-        lockedDoor.image = UIImage(named: "lockedDoor")
-        lockedDoor.contentMode = .scaleAspectFit
-        lockedDoor.clipsToBounds = true
-        return lockedDoor
-    }()
-    
-    
+
     @objc func buttonTapped(sender: UIButton) {
         processDoor()
     }
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         selectionStyle = .none
         contentView.backgroundColor = .clear
-        contentView.addSubview(button1)
-        contentView.addSubview(myLabel)
+        contentView.addSubview(doorStatusButton)
+        contentView.addSubview(doorNameLabel)
         contentView.addSubview(statusImage)
-        contentView.addSubview(home)
-        contentView.addSubview(lockedDoor)
+        contentView.addSubview(doorPlaceLabel)
+        contentView.addSubview(lockedShieldDoor)
 
         contentView.layer.cornerRadius = 15
         contentView.layer.borderWidth = 0.5
@@ -97,36 +73,37 @@ class CustomTableViewCell: UITableViewCell {
 
         setConstraints()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     private func setConstraints() {
 
-        lockedDoor.snp.makeConstraints { make in
+        lockedShieldDoor.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(20)
             make.left.equalToSuperview().inset(30)
         }
 
-        myLabel.snp.makeConstraints { make in
-            make.left.equalTo(lockedDoor).inset(60)
+        doorNameLabel.snp.makeConstraints { make in
+            make.left.equalTo(lockedShieldDoor).inset(60)
             make.top.equalToSuperview().inset(22)
         }
 
-        home.snp.makeConstraints { make in
-            make.left.equalTo(lockedDoor).inset(60)
-            make.bottom.equalTo(myLabel).inset(-10)
+        doorPlaceLabel.snp.makeConstraints { make in
+            make.left.equalTo(lockedShieldDoor).inset(60)
+            make.bottom.equalTo(doorNameLabel).inset(-15)
         }
-        
+
         statusImage.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(20)
             make.right.equalToSuperview().inset(30)
         }
-        
-        button1.snp.makeConstraints { make in
-            make.left.equalTo(lockedDoor).inset(128)
-            make.bottom.equalTo(myLabel).inset(-40)
+
+        doorStatusButton.snp.makeConstraints { make in
+            make.bottom.equalToSuperview().inset(10)
+            make.centerX.equalToSuperview()
+
         }
 
     }
@@ -135,7 +112,7 @@ class CustomTableViewCell: UITableViewCell {
         processDoor()
     }
 
-    func processDoor() {
+    private func processDoor() {
 
         firstStateLockedDoor()
 
@@ -144,30 +121,31 @@ class CustomTableViewCell: UITableViewCell {
         }
 
         secodStateUnlockingProcessDoor()
-        
+
         DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) {
             self.firstStateLockedDoor()
         }
     }
 
-
-    func firstStateLockedDoor() {
-        lockedDoor.image = UIImage(named: "lockedDoor")
+    private func firstStateLockedDoor() {
+        lockedShieldDoor.image = UIImage(named: "lockedDoor")
         statusImage.image = UIImage(named: "statusDoor")
-        button1.setTitle("Locked", for: .normal)
+        doorStatusButton.setTitle("Locked", for: .normal)
+        doorStatusButton.alpha = 1
     }
 
-    func secodStateUnlockingProcessDoor() {
-        lockedDoor.image = UIImage(named: "Unlocking")
+    private func secodStateUnlockingProcessDoor() {
+        lockedShieldDoor.image = UIImage(named: "Unlocking")
         statusImage.image = UIImage(named: "Spinner")
-        button1.setTitle("Unlocking", for: .normal)
-    }
+        statusImage.rotate()
+        doorStatusButton.setTitle("Unlocking...", for: .normal)
+        doorStatusButton.alpha = 0.5
+     }
 
-    func thirdStateUnlockedDoor() {
-        lockedDoor.image = UIImage(named: "shieldUnlocked")
+    private func thirdStateUnlockedDoor() {
+        lockedShieldDoor.image = UIImage(named: "shieldUnlocked")
         statusImage.image = UIImage(named: "Unlocked")
-        button1.setTitle("Unlocked", for: .normal)
+        doorStatusButton.setTitle("Unlocked", for: .normal)
+        doorStatusButton.alpha = 1
     }
 }
-
-

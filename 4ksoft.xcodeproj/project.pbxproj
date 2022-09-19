@@ -8,9 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		BA462741C9459730E2DE7AF2 /* Pods_4ksoft.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CCD34B6F27BCCC251FD28BE /* Pods_4ksoft.framework */; };
+		C63FBF6228D900A000BAD547 /* UIimage+rotate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63FBF6128D900A000BAD547 /* UIimage+rotate.swift */; };
+		C63FBF6428D900BD00BAD547 /* UIcolor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63FBF6328D900BD00BAD547 /* UIcolor+hex.swift */; };
+		C63FBF6828D9010300BAD547 /* DoorsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63FBF6728D9010300BAD547 /* DoorsModel.swift */; };
 		C674C88528BD1CCE002B829F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674C88428BD1CCE002B829F /* AppDelegate.swift */; };
 		C674C88728BD1CCE002B829F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674C88628BD1CCE002B829F /* SceneDelegate.swift */; };
-		C674C88928BD1CCE002B829F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674C88828BD1CCE002B829F /* ViewController.swift */; };
+		C674C88928BD1CCE002B829F /* DoorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C674C88828BD1CCE002B829F /* DoorsViewController.swift */; };
 		C674C88C28BD1CCE002B829F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C674C88A28BD1CCE002B829F /* Main.storyboard */; };
 		C674C88E28BD1CD0002B829F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C674C88D28BD1CD0002B829F /* Assets.xcassets */; };
 		C674C89128BD1CD0002B829F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C674C88F28BD1CD0002B829F /* LaunchScreen.storyboard */; };
@@ -21,10 +24,13 @@
 /* Begin PBXFileReference section */
 		6CCD34B6F27BCCC251FD28BE /* Pods_4ksoft.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_4ksoft.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		772A5F30AE040D3F759A9EF5 /* Pods-4ksoft.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-4ksoft.debug.xcconfig"; path = "Target Support Files/Pods-4ksoft/Pods-4ksoft.debug.xcconfig"; sourceTree = "<group>"; };
+		C63FBF6128D900A000BAD547 /* UIimage+rotate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIimage+rotate.swift"; sourceTree = "<group>"; };
+		C63FBF6328D900BD00BAD547 /* UIcolor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIcolor+hex.swift"; sourceTree = "<group>"; };
+		C63FBF6728D9010300BAD547 /* DoorsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorsModel.swift; sourceTree = "<group>"; };
 		C674C88128BD1CCE002B829F /* 4ksoft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 4ksoft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C674C88428BD1CCE002B829F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C674C88628BD1CCE002B829F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C674C88828BD1CCE002B829F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C674C88828BD1CCE002B829F /* DoorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorsViewController.swift; sourceTree = "<group>"; };
 		C674C88B28BD1CCE002B829F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C674C88D28BD1CD0002B829F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C674C89028BD1CD0002B829F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -63,6 +69,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C63FBF6528D900D200BAD547 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C63FBF6128D900A000BAD547 /* UIimage+rotate.swift */,
+				C63FBF6328D900BD00BAD547 /* UIcolor+hex.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C63FBF6628D900F900BAD547 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C63FBF6728D9010300BAD547 /* DoorsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C63FBF6928D9016B00BAD547 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				C674C88428BD1CCE002B829F /* AppDelegate.swift */,
+				C674C88628BD1CCE002B829F /* SceneDelegate.swift */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
 		C674C87828BD1CCE002B829F = {
 			isa = PBXGroup;
 			children = (
@@ -84,10 +116,10 @@
 		C674C88328BD1CCE002B829F /* 4ksoft */ = {
 			isa = PBXGroup;
 			children = (
+				C63FBF6928D9016B00BAD547 /* Launch */,
+				C63FBF6628D900F900BAD547 /* Model */,
 				C6F1843528D2579300696D12 /* Views */,
-				C674C88428BD1CCE002B829F /* AppDelegate.swift */,
-				C674C88628BD1CCE002B829F /* SceneDelegate.swift */,
-				C6F1843328D2572300696D12 /* LoadingViewController.swift */,
+				C63FBF6528D900D200BAD547 /* Extensions */,
 				C674C88A28BD1CCE002B829F /* Main.storyboard */,
 				C674C88D28BD1CD0002B829F /* Assets.xcassets */,
 				C674C88F28BD1CD0002B829F /* LaunchScreen.storyboard */,
@@ -99,7 +131,8 @@
 		C6F1843528D2579300696D12 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C674C88828BD1CCE002B829F /* ViewController.swift */,
+				C6F1843328D2572300696D12 /* LoadingViewController.swift */,
+				C674C88828BD1CCE002B829F /* DoorsViewController.swift */,
 				C6A94B6E28CDE5A500B38F37 /* CustomTableViewCell.swift */,
 			);
 			path = Views;
@@ -220,11 +253,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C674C88928BD1CCE002B829F /* ViewController.swift in Sources */,
+				C63FBF6228D900A000BAD547 /* UIimage+rotate.swift in Sources */,
+				C674C88928BD1CCE002B829F /* DoorsViewController.swift in Sources */,
+				C63FBF6428D900BD00BAD547 /* UIcolor+hex.swift in Sources */,
 				C6A94B6F28CDE5A600B38F37 /* CustomTableViewCell.swift in Sources */,
 				C6F1843428D2572300696D12 /* LoadingViewController.swift in Sources */,
 				C674C88528BD1CCE002B829F /* AppDelegate.swift in Sources */,
 				C674C88728BD1CCE002B829F /* SceneDelegate.swift in Sources */,
+				C63FBF6828D9010300BAD547 /* DoorsModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +408,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QLP9PS6P2W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = 4ksoft/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -400,6 +437,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QLP9PS6P2W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = 4ksoft/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
