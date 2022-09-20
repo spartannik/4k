@@ -40,7 +40,11 @@ final class LoadingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupUI()
+        openMainViewController()
+    }
+    
+    private func setupUI() {
         view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
 
         blurEffectView.frame = self.view.bounds
@@ -48,13 +52,11 @@ final class LoadingViewController: UIViewController {
 
         loadingActivityIndicator.center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
         view.addSubview(loadingActivityIndicator)
-
-        openMainViewController()
-
+        
     }
 
     private func openMainViewController() {
-
+        
         let mainViewController = ViewController()
         mainViewController.modalPresentationStyle = .fullScreen
         
