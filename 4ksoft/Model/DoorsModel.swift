@@ -8,9 +8,7 @@
 import Foundation
 
 struct DoorsModel {
-
     var doorName: String
     var doorPlace: String
-
 }
 

@@ -9,7 +9,7 @@ import UIKit
 
 class LoadingViewController: UIViewController {
 
-    var loadingActivityIndicator: UIActivityIndicatorView = {
+    private let loadingActivityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView()
 
         indicator.style = .large
@@ -25,7 +25,7 @@ class LoadingViewController: UIViewController {
         return indicator
     }()
 
-    var blurEffectView: UIVisualEffectView = {
+    private let blurEffectView: UIVisualEffectView = {
         let blurEffect = UIBlurEffect(style: .dark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
 
@@ -53,7 +53,7 @@ class LoadingViewController: UIViewController {
 
     }
 
-    func openMainViewController() {
+    private func openMainViewController() {
 
         let mainViewController = ViewController()
         mainViewController.modalPresentationStyle = .fullScreen
