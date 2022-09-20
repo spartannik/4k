@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
     var doors = [DoorsModel(doorName: "Front door", doorPlace: "Office"),
                  DoorsModel(doorName: "Back door", doorPlace: "Home"),
