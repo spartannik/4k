@@ -18,7 +18,7 @@ class ViewController: UIViewController {
 
     // MARK: Labels
 
-    private var welcomeLabel: UILabel = {
+    private let welcomeLabel: UILabel = {
         let label = UILabel()
         label.text = "Welcome"
         label.textColor = .black
@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         return label
     } ()
 
-    private var myDoors: UILabel = {
+    private let myDoors: UILabel = {
         let label = UILabel()
         label.text = "My doors"
         label.textColor = .black
@@ -36,21 +36,21 @@ class ViewController: UIViewController {
 
     // MARK: images
 
-    private var interQR: UIImageView = {
+    private let interQR: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "InterQR")
         image.contentMode = .scaleAspectFit
         return image
     }()
 
-    private var home: UIImageView = {
+    private let home: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "Home")
         image.contentMode = .scaleAspectFit
         return image
     }()
 
-    private var shester: UIImageView = {
+    private let shester: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "Shester")
         return image
