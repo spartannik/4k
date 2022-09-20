@@ -26,7 +26,7 @@ final class CustomTableViewCell: UITableViewCell {
         label.font = .systemFont(ofSize: 14)
         return label
     }()
-
+    
     private lazy var doorStatusButton: UIButton = {
         let button = UIButton()
         let color = UIColor(rgb: 0x00448)
